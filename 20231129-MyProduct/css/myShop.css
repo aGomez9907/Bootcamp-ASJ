@@ -1,0 +1,118 @@
+
+/* container principal */
+.grid-container{
+    display: grid;
+    grid-template-rows: 15% 5% auto;
+    width: 97vw;
+    height: 99vh;
+}
+/* header container */
+.grid-header{
+    display: grid;
+    margin: 1px;
+    grid-template-columns: 30% auto;
+    gap: auto;
+}
+.grid-header .header-name{
+    font-family : helvetica ;
+}
+.grid-header .nav-menu{
+    position: relative;
+    padding: 20px;
+}
+
+.grid-header .nav-menu .nav-menu-list{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.grid-header .nav-menu .nav-menu-list .nav-menu-item{
+    text-decoration:none;
+    color: black;
+}
+
+
+/* search container */
+
+.grid-search{
+    grid-row: 2;
+    margin: 1px;
+    height: 50px; 
+    display: grid;
+    grid-template-columns: 15% auto 20%;
+    /* background-color: pink */
+}
+
+
+.grid-search .search-item-1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-column: 1;
+    margin: 1px;
+}
+
+.grid-search .search-item-1 .search-btn{
+    height: 20px;
+    width: 20px;
+    background-color: black;
+}
+.grid-search .search-item-1 .search-inp{
+    height: 20px;
+    padding: 1px;
+}
+
+.grid-search .search-item-2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-column: 2;
+    width: 200px;
+    height: 25px;
+    background-color: black;
+    color: white;
+}
+
+.grid-search .search-item-3{
+    grid-column: 3;
+    height: 2px;
+
+}
+.grid-search .search-item-3 .pages-list{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+
+/* main container */
+
+.grid-main{
+    margin: 1px;
+    grid-row: 3;
+    /* background-color: aquamarine; */
+}
+
+.grid-main .product-list{
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr)) ;
+}
+
+.grid-main .product-list .product-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid gray;
+    margin: 3px ;
+}
+
+
+.grid-main .product-list .product-item img{
+    height: 100%;
+    width: 100%;
+}
+
