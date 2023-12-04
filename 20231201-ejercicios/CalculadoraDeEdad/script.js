@@ -1,7 +1,7 @@
 let mensaje = "Ingrese su edad";
 
-var edad = prompt(mensaje);
+let edad = prompt(mensaje);
 
-var dias = edad * 365;
+let dias = edad * 365;
 
 console.log(dias);
