@@ -96,7 +96,23 @@ function piramide() {
     st = st.slice(1);
     console.log(st);
   }
-  return;
+}
+
+//para hacerlo sin slice
+function piramide2() {
+  let n = Number(prompt("Ingrese un numero"));
+  let st = "";
+  for (let i = 0; i < n; i++) {
+    st += "*";
+    console.log(st);
+  }
+  for (let i = n; i > 0; i--) {
+    st = "";
+    for (let j = i - 1; j > 0; j--) {
+      st += "*";
+    }
+    console.log(st);
+  }
 }
 
 //Factorial:
