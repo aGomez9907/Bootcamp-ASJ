@@ -81,21 +81,3 @@ function contadorDePositivos() {
   }
   alert(`Ingesaste ${count} numeros.`);
 }
-
-/* FizzBuzz
-
-En este ejercicio deberás escribir un programa que imprima en la consola los números del 1 al 100, 
-teniendo en cuenta estos criterios:
-
-Si el número es múltiplo de 3, deberá imprimir "Fizz" en vez del número.
-Si es múltiplo de 5, deberá imprimir "Buzz".
-Si es múltiplo de 3 y de 5 (a la misma vez), deberá imprimir "FizzBuzz". */
-
-/*
-quiero simular un bar con una sola mesa para atender. Cuando venga un cliente quiero simular que el usuario seleccione productos de una carta (todos los que quiera)
-poder pedir la cuenta
-que pregunte si quiero dejar propina
-y quiero poder pedirle al mozo que me cuente un chiste
-
-usando if else while do while
-*/

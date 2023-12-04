@@ -11,7 +11,10 @@ let a = 1;
 do {
   let opcion = Number(
     prompt(
-      "Bienvenido al bar, elija una opcion: 1.Contar chiste | 2.Elegir menu. | 3.Pedir la cuenta"
+      `Bienvenido al bar, elija una opcion: 
+      1.Contar chiste 
+      2.Elegir menu. 
+      3.Pedir la cuenta`
     )
   );
   switch (opcion) {
@@ -23,7 +26,11 @@ do {
       while (i != 0) {
         let menu = Number(
           prompt(
-            "Elija una opcion del menu: 1.Cafe | 2.Te. | 3.Medialuna | 0.Salir"
+            `Elija una opcion del menu: 
+          1.Cafe....................$500
+          2.Te......................$300 
+          3.Medialuna....$200 
+          0.Salir`
           )
         );
         switch (menu) {
