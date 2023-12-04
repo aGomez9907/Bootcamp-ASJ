@@ -81,3 +81,32 @@ function contadorDePositivos() {
   }
   alert(`Ingesaste ${count} numeros.`);
 }
+
+//Pirámide
+//El usiario ingresa un numero, se pide crear la siguiente pirámide(console.log) hasta dicho numero ingresado
+
+function piramide() {
+  let n = Number(prompt("Ingrese un numero"));
+  let st = "";
+  for (let i = 0; i < n; i++) {
+    st += "*";
+    console.log(st);
+  }
+  for (let i = n; i > 1; i--) {
+    st = st.slice(1);
+    console.log(st);
+  }
+  return;
+}
+
+//Factorial:
+//Segun el número ingresado, calcular su factorial
+
+function factorial() {
+  let fact = 1;
+  let n = Number(prompt("Ingrese un numero"));
+  for (let i = 1; i <= n; i++) {
+    fact *= i;
+  }
+  console.log(`El factorial de ${n} es ${fact}`);
+}
