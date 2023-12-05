@@ -1,0 +1,9 @@
+.calculadora {
+  width: 300px;
+  margin: 50px auto;
+}
+.calculadora button {
+  width: 60px;
+  height: 60px;
+  font-size: 25px;
+}

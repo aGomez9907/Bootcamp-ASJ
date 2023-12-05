@@ -98,7 +98,7 @@ function piramide() {
   }
 }
 
-//para hacerlo sin slice
+//para hacerlo sin slice()
 function piramide2() {
   let n = Number(prompt("Ingrese un numero"));
   let st = "";
