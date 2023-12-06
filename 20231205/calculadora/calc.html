@@ -19,9 +19,9 @@
   </head>
   <body>
     <div class="container">
-      <div class="calculadora">
-        <div id="display" class="mb-3">
-          <input type="text" readonly />
+      <div class="calculadora border border-black">
+        <div class="m-3">
+          <input type="text" class="form-control" id="display" readonly />
         </div>
 
         <div class="row m-1">
@@ -41,7 +41,9 @@
             </button>
           </div>
           <div class="col-sm-3">
-            <button class="btn btn-warning" id="btn_/" value="/">/</button>
+            <button class="btn btn-warning operador" id="btn_/" value="/">
+              /
+            </button>
           </div>
         </div>
 
@@ -62,7 +64,7 @@
             </button>
           </div>
           <div class="col-sm-3">
-            <button class="btn btn-warning operator" id="btn_*" value="*">
+            <button class="btn btn-warning operador" id="btn_*" value="*">
               *
             </button>
           </div>
@@ -85,7 +87,7 @@
             </button>
           </div>
           <div class="col-sm-3">
-            <button class="btn btn-warning operator" id="btn_-" value="-">
+            <button class="btn btn-warning operador" id="btn_-" value="-">
               -
             </button>
           </div>
@@ -98,19 +100,17 @@
             </button>
           </div>
           <div class="col-sm-3">
-            <button class="btn btn-secondary" id="btn_." value=".">.</button>
+            <button class="btn btn-secondary numerico" id="btn_." value=".">
+              .
+            </button>
           </div>
           <div class="col-sm-3">
-            <button
-              class="btn btn-success operator border-0"
-              id="btn_result"
-              value=""
-            >
+            <button class="btn btn-success border-0" id="btn_igual" value="">
               =
             </button>
           </div>
           <div class="col-sm-3">
-            <button class="btn btn-warning operator" id="btn_+" value="+">
+            <button class="btn btn-warning operador" id="btn_+" value="+">
               +
             </button>
           </div>
