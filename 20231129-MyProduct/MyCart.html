@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Ecommerce</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <!--HEADER-->
+      <header class="bg-dark text-white text-center py-2">
+        <h1>Ecommerce</h1>
+      </header>
+
+      <!--NAVBAR-->
+      <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <a class="navbar-brand" href="myShopBootstrap.html">Ecommerce</a>
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="myShopBootstrap.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Shop</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">My Cart</a>
+          </li>
+        </ul>
+        <!--SEARCH-->
+        <form class="d-flex justify-content-end">
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            Search
+          </button>
+        </form>
+      </nav>
+
+      <div class="container-fluid mt-3 mb-3 row">
+        <div class="col-md-8">
+          <h2>Shopping Cart</h2>
+          <div id="contenedor-carrito" class="mb-3"></div>
+          <button class="btn btn-primary vaciar-carrito">Vaciar carrito</button>
+        </div>
+        <div class="col-md-4 text-end align-self-end">
+          <div class="row">
+            <h2>Checkout</h2>
+            <div class="mb-3"></div>
+            <p class="fw-bolder">Subtotal: $<span id="subtotal">0.00</span></p>
+            <button class="btn btn-success checkout" id="checkout">
+              Iniciar Pago
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+      cargarCarrito();
+    </script>
+  </body>
+</html>
