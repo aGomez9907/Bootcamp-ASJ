@@ -28,6 +28,12 @@
 
 /*-------PRINCIPALES PROBLEMAS---------*/
 //boton de agregar al carrito en la pagina individual de producto no anda
+//agregar paginación
+//agregar algo que te avise que agregaste al carrito
+//para redireccionar despues de comprar usar location.href = "url"
+//convendria crear los items del carrito SOLO con las funciones en vez de usar el innerHtml
+//una buena forma de comparar los objetos puede ser comparando el contenido de cada objeto
+
 /*-------------------------------------- */
 
 /* VARIABLES */
