@@ -32,13 +32,9 @@
 
       actualizar.addEventListener("click", () => {
         let h2 = document.getElementById("h2");
-
-        //console.log("utilizando FETCH");
-
         fetch(`https://api.chucknorris.io/jokes/random`)
-          .then((response) => response.json()) //convertir a JSON
+          .then((response) => response.json())
           .then((json) => {
-            console.log(json.value);
             h2.innerText = json.value;
           })
           .catch((error) => console.log("Ocurrió un error: " + error));
