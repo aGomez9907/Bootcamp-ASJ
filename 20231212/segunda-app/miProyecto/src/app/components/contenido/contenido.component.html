@@ -1,0 +1,14 @@
+<h2>{{ titulo | uppercase }}</h2>
+<p><app-lista></app-lista></p>
+<button (click)="generarAleatorio()" class="btn btn-secondary">
+  Generar contenido aleatorio
+</button>
+<button (click)="incrementar()" class="btn btn-danger">Incrementar</button>
+<button (click)="decrementar()" class="btn btn-primary">Decrementar</button>
+<h3>{{ num }}</h3>
+<p>{{ persona.nombre }}</p>
+<div><h4 *ngIf="num > 3">Este es un mensaje</h4></div>
+<p class="text-bg-info g-0">Este es el listado de cosas a comprar</p>
+<ul class="text-bg-danger g-0">
+  <li *ngFor="let prod of compras">{{ prod }}</li>
+</ul>
