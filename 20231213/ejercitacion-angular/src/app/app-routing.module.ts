@@ -6,10 +6,11 @@ import { Proyecto2Component } from './components/proyecto-2/proyecto-2.component
 //URL = https://localhost:4200/
 const routes: Routes = [
   //   {
-  //   path: 'inicio',component: inicioComponent
+  //   path: '',component: homeComponent
   // },
   { path: 'ToDoList', component: Proyecto1Component },
   { path: 'TheSimpsonsCharacterList', component: Proyecto2Component },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
