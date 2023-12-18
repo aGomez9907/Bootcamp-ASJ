@@ -1,0 +1,35 @@
+<h2 class="text-start">Rick And Morty Characters</h2>
+<div class="row">
+  <div class="col-md-8">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Profession</th>
+          <th scope="col">Image preview</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of characters.results">
+          <th scope="row">{{ p.id }}</th>
+          <td>{{ p.name }}</td>
+          <td>{{ p.species }}</td>
+          <td>
+            <img src="{{ p.image }}" alt="" width="50px" />
+          </td>
+          <td>
+            <button class="btn btn-dark">
+              <a
+                href="/RickAndMortyList/{{ p.id }}"
+                class="text-decoration-none text-white"
+                >Details</a
+              >
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

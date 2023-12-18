@@ -1,0 +1,18 @@
+<div class="card">
+  <img
+    src="{{ character.image }}"
+    class="card-img-top w-50"
+    alt="card-img-top"
+  />
+  <div class="card-body">
+    <h5 class="card-title">{{ character.name }}</h5>
+    <ul class="card-text">
+      <li>Status: {{ character.status }}</li>
+      <li>Species: {{ character.species }}</li>
+      <li>Type: {{ character.type }}</li>
+      <li>Gender: {{ character.gender }}</li>
+      <li>Origin: {{ character.origin.name }}</li>
+      <li>Location: {{ character.location.name }}</li>
+    </ul>
+  </div>
+</div>

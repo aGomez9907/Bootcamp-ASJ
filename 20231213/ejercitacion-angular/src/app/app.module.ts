@@ -9,7 +9,11 @@ import { MiMainComponent } from './components/mi-main/mi-main.component';
 import { Proyecto1Component } from './components/proyecto-1/proyecto-1.component';
 import { MiNavbarComponent } from './components/mi-navbar/mi-navbar.component';
 import { Proyecto2Component } from './components/proyecto-2/proyecto-2.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Proyecto3Component } from './components/proyecto-3/proyecto-3.component';
+import { MyServiceService } from './services/my-service.service';
+import { HttpClientModule } from '@angular/common/http';
+import { MyListComponent } from './components/proyecto-3/my-list/my-list.component';
+import { MyCardComponent } from './components/proyecto-3/my-card/my-card.component';
 
 @NgModule({
   declarations: [
@@ -20,9 +24,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     Proyecto1Component,
     MiNavbarComponent,
     Proyecto2Component,
+    Proyecto3Component,
+    MyListComponent,
+    MyCardComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, NgbModule],
-  providers: [],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  providers: [MyServiceService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
