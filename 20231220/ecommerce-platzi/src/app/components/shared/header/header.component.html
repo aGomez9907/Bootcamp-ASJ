@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <h1 class="navbar-brand" routerLink="products">Always expand</h1>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarsExample02"
+    aria-controls="navbarsExample02"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExample02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/products">All products</a>
+      </li>
+      <li class="nav-item">
+        <div class="btn-group">
+            <button type="button" class="btn btn-outline-light  dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              Categories
+            </button>
+            <ul class="dropdown-menu" *ngFor="let cat of categories">
+              <li ><a class="dropdown-item" routerLink="/products/{{cat.id}}">{{cat.name}}</a></li>
+            </ul>
+          </div>        
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="cart">Cart<sup class="bg-success p-2 rounded-circle">12</sup></a>
+      </li>
+    </ul>
+    <!-- <form class="form-inline my-2 my-md-0">
+      <input class="form-control" type="text" placeholder="Search" />
+    </form> -->
+  </div>
+</nav>

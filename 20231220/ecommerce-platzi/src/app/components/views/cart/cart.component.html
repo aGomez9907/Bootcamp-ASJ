@@ -1,0 +1,40 @@
+<div *ngIf="productsInCart.length > 0" class="container">
+  <ul>
+      <li *ngFor="let product of productsInCart">
+          
+              <div class="card">
+                  <div class="row g-0">
+                    <div class="col-2 col-sm-2">
+                      <img src="{{ product.product.images[0] }}" class="w-50" alt="card-horizontal-image">
+                    </div>
+                    <div class="col-3 col-sm-3">
+                      <div class="card-body">
+                        <h5 class="card-title">{{product.product.title}}</h5>
+                        
+                        
+                        
+                       
+                        
+                      </div>
+                      
+                    </div>
+                    <div class="col-3 col-sm-3"><p class="card-text">Each:</p>
+                  <div>${{product.product.price}}</div></div>
+                    <div class="col-2 col-sm-2"><p class="card-text"><small class="text-black ">Quantity:</small></p>
+                  <div><button class="btn btn-light btn-sm"  (click)="removeOne(product.product.id)">-</button><span> {{product.quantity}}</span><button class="btn btn-light btn-sm" (click)="addOne(product.product.id)">+</button></div></div>
+                  <div class="col-1 col-sm-1"> <p class="card-text">Price:</p>
+                  <span>${{product.product.price * product.quantity}}</span></div>
+                    <div class="col-1 col-sm-1"><button class="btn btn-close" (click)="deleteFromCart(product.product.id)"></button></div>
+                  </div>
+                </div>
+          
+      </li>
+  </ul>
+  
+  <h3>Total : {{totalCart}}</h3>
+</div>
+
+<div *ngIf="productsInCart.length <= 0" class="container h-100 d-flex flex-column justify-content-center align-items-center">
+    <h2>El carrito está vacío!</h2>
+    <button class="btn m-4" routerLink="/products">Seguir comprando</button>
+</div>
