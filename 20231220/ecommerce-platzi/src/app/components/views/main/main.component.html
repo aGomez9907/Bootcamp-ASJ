@@ -7,7 +7,7 @@
             <div>
               <div class="d-flex flex-column">
                 <label for="inputTitle" class="form-label">Filtro por nombre del producto</label>
-                <input id="inputTitle" type="text" name="title" [(ngModel)]="title" aria-label="title-search" aria-describedby="inputGroup-sizing-default">
+                <input class="input-group-text " id="inputTitle" type="text" name="title" [(ngModel)]="title" aria-label="title-search" aria-describedby="inputGroup-sizing-default">
               </div>
               <div class="d-flex flex-column my-3">
                 <p class="form-label m-0">Rango de precios</p>
@@ -27,9 +27,20 @@
                     <span class="input-group-text">.00</span>
                   </div> 
                 </div>
+                <div class="row" [ngClass]="categoryInUrl? 'visually-hidden ' : ''">
+                  <label for="category">Category</label>
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-outline-dark  dropdown-toggle text-black" data-bs-toggle="dropdown" aria-expanded="false">
+                      {{categoryFilterName}}
+                    </button>
+                    <ul class="dropdown-menu" >
+                      <li *ngFor="let cat of categories" ><a class="dropdown-item"  (click)="setCategory(cat.id, cat.name)">{{cat.name}}</a></li>
+                    </ul>
+                  </div>      
+                </div>
               </div>
-              <button class="btn btn-outline-dark m-2" (click)="getFilteredProducts(); getFilteredProductsWithoutPrice()">Filtrar</button>
-              <button class="btn btn-outline-dark m-2" (click)="clearFilters(); getFilteredProductsWithoutPrice()">Limpiar Filtros</button>
+              <button class="btn btn-outline-dark m-2" (click)="getFilteredProducts(); getFilteredProductsWithoutPrice(); isFiltered = true">Filtrar</button>
+              <button class="btn btn-outline-dark m-2" (click)="clearFilters(); getFilteredProductsWithoutPrice(); isFiltered = false">Limpiar Filtros</button>
               <div *ngIf='mensaje != ""' class="alert alert-info" role="alert">
                 {{mensaje}}
             </div>
@@ -41,13 +52,14 @@
     </div>
     <div class="col-sm-10">
       <h3 class="mx-4 my-1">{{categoryName}}</h3>
+      <h6 class="text-secondary ms-4 " [ngClass]="!isFiltered ? 'visually-hidden':''">{{categoryFilterName}}</h6>
       <div class="row">
         <div class="col-md-4 col-sm-6 col-lg-3" *ngFor="let product of products">
           <div class="card m-3 " routerLink="/product/{{product.id}}">
-            <div class="img-home m-3">
+            <div class="img-home m-3 grow">
                 <img
                   src="{{product.images[0]}}"
-                  class="card-img-top "
+                  class="card-img-top"
                   alt="{{product.title}}"
                 />
             </div>
@@ -70,6 +82,6 @@
   <div>
     <h2>No hay productos para mostrar</h2>
     <button class="btn btn-outline-dark m-2" (click)="resetProductList()" routerLink="/products">Seguir comprando</button>
-  </div>div>
+  </div>
 </div>
 

@@ -11,6 +11,7 @@ import { Category } from '../models/Category';
 export class MainServiceService {
   constructor(private http: HttpClient) {}
   URL_API ='https://api.escuelajs.co/api/v1/'
+
   
   public cantidadCarrito: number = 0;
 

@@ -1,10 +1,36 @@
-<nav class="navbar navbar-expand navbar-dark bg-dark">
+ <nav class=" navbar navbar-expand-lg navbar-light bg-dark px-sm-5 px-2" data-bs-theme="dark">
+  <h1 class="navbar-brand text-white " routerLink="products">Always expand</h1>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-end me-4" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-link text-white " routerLink="/products">All products</a>
+      <div class="btn-group">
+        <button type="button" class="btn btn-outline-light  dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          Categories
+        </button>
+        <ul class="dropdown-menu" >
+          <li *ngFor="let cat of categories" ><a class="dropdown-item" routerLink="/products/{{cat.id}}">{{cat.name}}</a></li>
+        </ul>
+      </div>  
+      <div class="position-relative">
+        <div *ngIf="mainServiceService.cantidadCarrito > 0" class="circle bg-success"><span class="circle-content">{{mainServiceService.cantidadCarrito}}</span></div>
+          <a class="nav-link text-white " routerLink="cart">Cart</a>      
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+
+ <!-- <nav class="navbar navbar-expand navbar-dark bg-dark d-flex justify-content-around">
   <h1 class="navbar-brand" routerLink="products">Always expand</h1>
   <button
     class="navbar-toggler"
     type="button"
-    data-toggle="collapse"
-    data-target="#navbarsExample02"
+    data-bs-toggle="collapse"
+    data-bs-target="#navbarsExample02"
     aria-controls="navbarsExample02"
     aria-expanded="false"
     aria-label="Toggle navigation"
@@ -30,9 +56,9 @@
       <li class="nav-item position-relative">
         <div *ngIf="mainServiceService.cantidadCarrito > 0" class="circle bg-success">{{mainServiceService.cantidadCarrito}} </div>
         <a class="nav-link" routerLink="cart">Cart
-          <!-- <sup *ngIf="mainServiceService.cantidadCarrito > 0" class="bg-success p-2 rounded-circle">{{mainServiceService.cantidadCarrito}}</sup> -->
+          <sup *ngIf="mainServiceService.cantidadCarrito > 0" class="bg-success p-2 rounded-circle">{{mainServiceService.cantidadCarrito}}</sup>
       </a>
       </li>
     </ul>
   </div>
-</nav>
+</nav> -->

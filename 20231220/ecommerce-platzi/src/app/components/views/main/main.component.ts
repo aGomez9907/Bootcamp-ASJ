@@ -13,11 +13,16 @@ import { SidebarComponent } from '../../shared/sidebar/sidebar.component';
 export class MainComponent implements OnInit{
 
   products: Product[] = [];
+  categories: Category[] = [];
+
 
   minPrice : number = 0;
   maxPrice : number = 0;
   title: string = '';
   mensaje : string = "";
+  currentCategory = '';
+  categoryInUrl: string = this.ruta.snapshot.params['id'];
+  isFiltered: boolean = false;
 
   constructor(private mainServiceService:MainServiceService, private ruta:ActivatedRoute){
     
@@ -25,9 +30,11 @@ export class MainComponent implements OnInit{
 
   categoriaID: string= '';
   categoryName: string = 'All Products'
+  categoryFilterName: string = 'Select Category'
 
   ngOnInit(): void {
     this.getProducts();
+    this.getCategories();
     
   }
 
@@ -55,10 +62,10 @@ export class MainComponent implements OnInit{
     //   this.mensaje = "El precio mínimo debe ser mayor que 1"
     //   return;
     // }
-    const currentCategory = this.ruta.snapshot.params['id'];
+    //const currentCategory = this.ruta.snapshot.params['id'];
     
-    if(currentCategory){
-      this.mainServiceService.getFilteredPriceProductsByCategory(this.minPrice, this.maxPrice, currentCategory, this.title).subscribe(
+    if(this.currentCategory){
+      this.mainServiceService.getFilteredPriceProductsByCategory(this.minPrice, this.maxPrice, Number(this.currentCategory), this.title).subscribe(
         (res : Product[]) => {
           this.products = res;
         }
@@ -77,11 +84,11 @@ export class MainComponent implements OnInit{
     //   this.mensaje = "El precio mínimo debe ser mayor que 1"
     //   return;
     // }
-    const currentCategory = this.ruta.snapshot.params['id'];
+    //const currentCategory = this.ruta.snapshot.params['id'];
     
     if(this.minPrice==0 && this.maxPrice==0){
-      if(currentCategory){
-        this.mainServiceService.getFilteredPriceProductsByCategory(1, 999999999999, currentCategory, this.title).subscribe(
+      if(this.currentCategory){
+        this.mainServiceService.getFilteredPriceProductsByCategory(1, 999999999999, Number(this.currentCategory), this.title).subscribe(
           (res : Product[]) => {
             this.products = res;
           }
@@ -104,11 +111,28 @@ export class MainComponent implements OnInit{
     this.minPrice = 0;
     this.maxPrice = 0;
     this.title = '';
+    this.currentCategory = '';
+    this.categoryFilterName = 'Select Category';
   }
 
   resetProductList(){
     this.clearFilters();
     this.getProducts();
+  }
+
+
+  getCategories(){
+    this.mainServiceService.getCategories().subscribe(
+      (data: Category[]) => {
+        this.categories = data;
+        console.log(this.categories)
+      }
+    );
+  }
+
+  setCategory(id: number, categoryFilterName : string){
+    this.currentCategory = id.toString();
+    this.categoryFilterName = categoryFilterName;
   }
 
 }

@@ -5,5 +5,11 @@
     color: white;
     border-radius: 1em;
     right:-1em;
-    padding-left: 0.5em
+    display: flex;
+    align-items: center;
+}
+
+.circle-content{
+    width: 1.5em;
+    text-align: center;
 }
