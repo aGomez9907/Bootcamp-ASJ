@@ -10,21 +10,29 @@ import { Category } from '../models/Category';
 
 export class MainServiceService {
   constructor(private http: HttpClient) {}
-  URL_API ='https://api.escuelajs.co/api/v1/products'
-  URL_CATEGORIES= 'https://api.escuelajs.co/api/v1/categories'
-
-  public carrito: number = 0;
+  URL_API ='https://api.escuelajs.co/api/v1/'
+  
+  public cantidadCarrito: number = 0;
 
   public getAllProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.URL_API).pipe(map(res => res as Product[]))
+    return this.http.get<Product[]>(this.URL_API+'products').pipe(map(res => res as Product[]))
   }
 
   public getProduct(id: number): Observable<any> {
-    return this.http.get(this.URL_API + "/" + id);
+    return this.http.get(this.URL_API + "products/" + id);
   }
 
   public getCategories(): Observable<Category[]>{
-    return this.http.get<Category[]>(this.URL_CATEGORIES);
+    return this.http.get<Category[]>(this.URL_API+'categories').pipe(map(res => res as Category[]));
   }
+
+  public getFilteredPriceProductsByCategory(priceMin : number, priceMax : number, categoryId : number, title:string) : Observable<Product[]>{
+    return this.http.get<Product[]>(this.URL_API+`products/?price_min=${priceMin}&price_max=${priceMax}&categoryId=${categoryId}&title=${title}`).pipe(map(res => res as Product[]));    
+  }
+
+  public getFilteredPriceProducts(priceMin : number, priceMax : number, title:string) : Observable<Product[]>{
+    return this.http.get<Product[]>(this.URL_API+`products/?price_min=${priceMin}&price_max=${priceMax}&title=${title}`).pipe(map(res => res as Product[]));    
+  }
+
 
 }

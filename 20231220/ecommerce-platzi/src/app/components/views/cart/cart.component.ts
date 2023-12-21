@@ -39,37 +39,48 @@ deleteFromCart(id: number){
   if(confirmacion){
     this.productsInCart.splice(this.productsInCart.indexOf(productToDelete), 1)
     this.saveCart();
+    this.updateItemsInCart();
   }
 }
 
 addOne(id: number){
   this.productsInCart = this.productsInCart.map( (item: ProductInCart ) => {
     if(item.product.id === id) {
-      return {...item, quantity:item.quantity++}
+      item.quantity++
+      return {...item}
     } else{
       return item
     }
   })
   this.saveCart()
+  this.updateItemsInCart();
 }
 
 removeOne(id: number){
+  
   let isCero = false;
+  let itemTest: any = []
   this.productsInCart = this.productsInCart.map( (item: ProductInCart ) => {
+    
     if(item.product.id === id) {
       if(item.quantity == 1){
         isCero = true;
+        return item;
       }
-      return {...item, quantity:item.quantity--}
+      item.quantity--;
+      return {...item}
+      
     } else{
       return item
     }
   })
+  console.log(itemTest);
   if(isCero){
     this.addOne(id);
     this.deleteFromCart(id);
   }
   this.saveCart()
+  this.updateItemsInCart();
 }
 
 // No funciona no se por que!!
@@ -84,16 +95,31 @@ removeOne(id: number){
 //   this.saveCart()
 // }
 
-saveCart(){
-  const stringifiedNewCart = JSON.stringify(this.productsInCart);
-  localStorage.setItem('cart', stringifiedNewCart);
-  this.updateTotalCart()
-}
+  saveCart(){
+    const stringifiedNewCart = JSON.stringify(this.productsInCart);
+    localStorage.setItem('cart', stringifiedNewCart);
+    this.updateTotalCart()
+  }
 
-updateTotalCart(){
-  const values = this.productsInCart.map((item: ProductInCart) => item.quantity * item.product.price)
-  const total = values.reduce((sum, actual) => sum + actual, 0);
-  this.totalCart = total;
-}
+  updateTotalCart(){
+    const values = this.productsInCart.map((item: ProductInCart) => item.quantity * item.product.price)
+    const total = values.reduce((sum, actual) => sum + actual, 0);
+    this.totalCart = total;
+  }
 
+  updateItemsInCart(){
+    const values = this.productsInCart.map((item: ProductInCart) => item.quantity)
+    const total = values.reduce((sum, actual) => sum + actual, 0);
+    this.mainServiceService.cantidadCarrito = total;
+  }
+
+  comprar(){
+    const confirmation = confirm("Confirma compra?")
+    if(confirmation){
+      localStorage.clear();
+      this.productsInCart = [];
+      this.mainServiceService.cantidadCarrito = 0;
+      alert("Gracias por su compra!")
+    }
+  }
 }

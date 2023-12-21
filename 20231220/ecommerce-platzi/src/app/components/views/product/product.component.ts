@@ -51,11 +51,13 @@ export class ProductComponent {
   addOne(){
     this.unitsInCart++;
     this.addToCart();
+    this.updateItemsInCart()
   }
 
   removeOne(){
     this.unitsInCart--;
     this.addToCart();
+    this.updateItemsInCart()
   }
 
   addToCart() {
@@ -74,5 +76,13 @@ export class ProductComponent {
 
     const stringifiedNewCart = JSON.stringify(filteredCart);
     localStorage.setItem('cart', stringifiedNewCart);
+  }
+
+  updateItemsInCart(){
+    const currentCart = localStorage.getItem('cart');
+    const parsedCart = currentCart ? JSON.parse(currentCart) : [];
+    const values = parsedCart.map((item: ProductInCart) => item.quantity)
+    const total = values.reduce((sum : number, actual : number) => sum + actual, 0);
+    this.mainServiceService.cantidadCarrito = total;
   }
 }

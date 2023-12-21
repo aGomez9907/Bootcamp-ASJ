@@ -10,31 +10,33 @@ import { Category } from '../../../models/Category';
 })
 export class HeaderComponent {
 
- 
   categories: Category[] = [];
 
-  constructor(private mainServiceService:MainServiceService){
+  constructor(public mainServiceService:MainServiceService){
     
   }
 
   ngOnInit():void{
     this.getCategories()
-    console.log();
-
+    this.updateItemsInCart()
   }
 
   getCategories(){
-    this.categories = this.mainServiceService.getCategories();
     this.mainServiceService.getCategories().subscribe(
       (data: Category[]) => {
         this.categories = data;
-        console.log(data)
-      },
-      error => {
-        console.error('Error fetching categories:', error);
       }
     );
-    
   }
+
+  updateItemsInCart(){
+    const currentCart = localStorage.getItem('cart');
+    const parsedCart = currentCart ? JSON.parse(currentCart) : [];
+    const values = parsedCart.map((item: ProductInCart) => item.quantity)
+    const total = values.reduce((sum : number, actual : number) => sum + actual, 0);
+    this.mainServiceService.cantidadCarrito = total;
+  }
+
+
 
 }
