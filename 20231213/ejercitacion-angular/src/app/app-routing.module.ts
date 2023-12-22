@@ -5,6 +5,7 @@ import { Proyecto2Component } from './components/proyecto-2/proyecto-2.component
 import { Proyecto3Component } from './components/proyecto-3/proyecto-3.component';
 import { MyCardComponent } from './components/proyecto-3/my-card/my-card.component';
 import { MyListComponent } from './components/proyecto-3/my-list/my-list.component';
+import { PipesPracticeComponent } from './components/pipes-practice/pipes-practice.component';
 
 //URL = https://localhost:4200/
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'TheSimpsonsCharacterList', component: Proyecto2Component },
   { path: 'RickAndMortyList', component: MyListComponent },
   { path: 'RickAndMortyList/:id', component: MyCardComponent },
+  { path: 'pipesPractice', component: PipesPracticeComponent },
 ];
 
 @NgModule({

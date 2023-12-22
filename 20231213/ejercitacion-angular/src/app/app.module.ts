@@ -14,6 +14,8 @@ import { MyServiceService } from './services/my-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MyListComponent } from './components/proyecto-3/my-list/my-list.component';
 import { MyCardComponent } from './components/proyecto-3/my-card/my-card.component';
+import { PipesPracticeComponent } from './components/pipes-practice/pipes-practice.component';
+import { MyPipePipe } from './pipes/my-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { MyCardComponent } from './components/proyecto-3/my-card/my-card.compone
     Proyecto3Component,
     MyListComponent,
     MyCardComponent,
+    PipesPracticeComponent,
+    MyPipePipe,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [MyServiceService],
