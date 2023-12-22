@@ -18,7 +18,7 @@ export class PipesPracticeComponent {
 
  public randomArray(arr: number[], n: number ): number[]{
   for(let i=0;i<n ; i++){
-    arr.push(Number(Math.random().toFixed(1)))
+    arr.push(Math.floor(Math.random()*100 +1))
   }
   return arr;
  }
