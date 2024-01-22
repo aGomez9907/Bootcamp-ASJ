@@ -51,7 +51,7 @@
         (click)="filterCompleted()"
       />
       <label class="btn btn-outline-primary" for="btnRadio2">Completed</label>
-
+<!-- 
       <input
         type="radio"
         class="btn-check"
@@ -59,8 +59,8 @@
         id="btnRadio3"
         autocomplete="off"
         (click)="filterDeleted()"
-      />
-      <label class="btn btn-outline-primary" for="btnRadio3">Deleted</label>
+      /> -->
+      <!-- <label class="btn btn-outline-primary" for="btnRadio3">Deleted</label> -->
       <input
         type="radio"
         class="btn-check"
@@ -75,23 +75,23 @@
     <div
       class="card mx-2"
       [ngClass]="
-        task.isDone == true
+        task.estado == true
           ? 'text-decoration-line-through'
           : 'text-decoration-none'
       "
-      *ngFor="let task of tasksToShow; index as i"
+      *ngFor="let task of tasksToShow | async; index as i "
     >
       <div class="card-header">Task #{{ i + 1 }}</div>
       <div class="card-body">
-        <h5 class="card-title">{{ task.title }}</h5>
+        <h5 class="card-title">{{ task.nombre }}</h5>
         <p class="card-text">
-          {{ task.description }}
+          {{ task.descripcion }}
         </p>
 
-        <input type="checkbox" class="check m-1" [(ngModel)]="task.isDone" />
-        <a href="#" class="btn btn-danger" (click)="deleteTask(i)">Delete</a>
+        <input type="checkbox" class="check m-1" [(ngModel)]="task.estado" (change)="updateTask(task.id, task)" />
+        <a class="btn btn-danger" (click)="deleteTask(task.id)">Delete</a>
       </div>
-      <div class="card-footer text-muted">{{ task.date }}</div>
+      <!-- <div class="card-footer text-muted">{{ task.date }}</div> -->
     </div>
   </div>
 </div>
